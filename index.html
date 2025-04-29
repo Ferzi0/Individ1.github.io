@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контактная информация</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Cистема управления компьютерными аудиториями МИДиС</h1>
+    <nav>
+      <a class="topb" href="authorization.html" class="nav-link">Авторизация</a>
+      <a class="topb" href="register.html" class="nav-link">Регистрация</a>
+    </nav>
+  </header>
+  
+  <div class="container">
+    <main class="content">
+  
+      <section class="contact-section">
+  
+        <div class="form-wrapper">
+          <h2>Наши контакты</h2>
+          <p><b>Адрес:</b> г. Челябинск, ул. Ворошилова, д. 12</p>
+          <p><b>Телефон:</b> +7 (123) 456-78-90</p>
+          <p><b>Email:</b> info@university.ru</p>
+          <iframe src="https://yandex.ru/map-widget/v1/?lang=ru_RU&amp;scroll=true&amp;source=constructor-api&amp;um=constructor%3Add81a19f20925073fae7870ed86aae6985e5c5f7c97c512c6970f047e61bae83" frameborder="0" allowfullscreen="true" width="600px" height="200px" style="display: block;"></iframe>
+          <h3>Форма для обратной связи</h3>
+          <form id="feedback-form">
+            <input type="text" id="name" placeholder="Ваше имя" required><br>
+            <input type="email" id="email" placeholder="Ваш email" required><br>
+            <textarea id="message" placeholder="Ваше сообщение" required></textarea><br>
+            <button type="submit">Отправить</button>
+          </form>
+  
+          <div id="feedback-success" style="display:none; margin-top:10px; color: green;">
+            Сообщение успешно отправлено!
+          </div>
+        </div>
+  
+      </section>
+  
+    </main>
+  </div>
+  
+  <script src="js/contacts.js"></script>
+</body>
+</html>

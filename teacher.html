@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель преподавателя</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Панель преподавателя</h1>
+        <button onclick="logout()">Выйти</button>
+      </header>
+      
+      <div class="container">
+        <nav class="sidebar">
+          <ul>
+            <li><a href="#" onclick="showSection('assign')">Назначить занятие</a></li>
+            <li><a href="#" onclick="showSection('schedule')">Расписание</a></li>
+            <li><a href="#" onclick="showSection('files')">Управление файлами</a></li>
+            <li><a href="#" onclick="showSection('feedback')">Обратная связь</a></li>
+          </ul>
+        </nav>
+      
+        <main class="content">
+          <section id="assign" class="teacher-section">
+            <h2>Назначить занятие для группы</h2>
+            <form id="assign-form">
+              <input type="text" id="group-name" placeholder="Название группы" required><br>
+              <select id="audience-select" required></select><br>
+              <input type="date" id="lesson-date" required><br>
+              <button type="submit">Назначить</button>
+            </form>
+            <ul id="schedule-list"></ul>
+
+            <div class="computer-management">
+              <h2>Управление компьютерами</h2>
+            
+              <label for="auditorySelect">Выберите аудиторию:</label>
+              <select id="auditorySelect"></select>
+            
+              <div id="computerTableContainer"></div>
+            </div>
+          </section>
+
+          <section id="schedule" class="teacher-section">
+            <table id="student-schedule-table">
+                <thead>
+                    <tr>
+                        <th>Группа</th>
+                        <th>Аудитория</th>
+                        <th>Время</th>
+                        <th>Преподаватель</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+          </section>
+
+          <section id="files" class="teacher-section" style="display:none;">
+            <h2>Управление доступом к дискам</h2>
+            <p>У вас есть полный доступ к диску Z (редактирование) и только просмотр на диск D.</p>
+            <div class="file-access">
+              <p><b>Диск Z</b> — права на редактирование.</p>
+              <p><b>Диск D</b> — только чтение.</p>
+            </div>
+            <button type="submit">Запросить полный доступ</button>
+          </section>
+
+          <section id="feedback" class="teacher-section form-wrapper" style="display:none;">
+            <h2>Обратная связь</h2>
+            <h2>Контактная информация</h2>
+            <p><b>Адрес:</b> г. Челябинск, ул. Ворошилова, д. 12</p>
+            <p><b>Телефон:</b> +7 (123) 456-78-90</p>
+            <p><b>Email:</b> info@university.ru</p>
+            <iframe src="https://yandex.ru/map-widget/v1/?lang=ru_RU&amp;scroll=true&amp;source=constructor-api&amp;um=constructor%3Add81a19f20925073fae7870ed86aae6985e5c5f7c97c512c6970f047e61bae83" frameborder="0" allowfullscreen="true" width="600px" height="200px" style="display: block;"></iframe>
+            <h2>Есть предложения или вопросы? Напишите нам!</h2>
+            <form id="feedback-form">
+              <label for="user-name">Ваше имя</label>
+              <input type="text" id="user-name" placeholder="Введите ваше имя" required>
+          
+              <label for="user-email">Email</label>
+              <input type="email" id="user-email" placeholder="Введите ваш email" required>
+          
+              <label for="feedback-subject">Тема сообщения</label>
+              <input type="text" id="feedback-subject" placeholder="Тема" required>
+          
+              <label for="feedback-message">Сообщение</label>
+              <textarea id="feedback-message" rows="5" placeholder="Введите сообщение..." required></textarea>
+          
+              <button type="submit">Отправить</button>
+            </form>
+            <p id="feedback-status" style="margin-top: 15px;"></p>
+          </section>                  
+        </main>
+      </div>
+      
+      <script src="js/student.js"></script>
+      <script src="js/teacher.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Администратор</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <h1>Панель администратора</h1>
+    <button onclick="logout()">Выйти</button>
+</header>
+
+<div class="container">
+    <nav class="sidebar">
+        <ul>
+            <li><a href="#" onclick="showSection('audiences')">Аудитории</a></li>
+            <li><a href="#" onclick="showSection('computers')">Компьютеры</a></li>
+            <li><a href="#" onclick="showSection('groups')">Группы</a></li>
+            <li><a href="#" onclick="showSection('users')">Пользователи</a></li>
+            <li><a href="#" onclick="showSection('schedule')">Расписание</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+
+      <section id="audiences" class="admin-section">
+        <div class="add-schedule-section">
+          <h2>Управление аудиториями</h2>
+      
+          <form id="add-audience-form">
+            <input type="text" id="audience-name" placeholder="Название аудитории" required>
+            <button type="submit">Добавить аудиторию</button>
+          </form>
+      
+          <ul id="audience-list" class="audience-list"></ul>
+        </div>
+      </section>
+      
+
+        <section id="computers" class="admin-section" style="display:none;">
+          <h2>Управление компьютерами</h2>
+          <form id="add-computer-form">
+              <select id="audience-select" required></select><br>
+              <input type="text" id="computer-name" placeholder="Имя компьютера" required>
+              <button type="submit">Добавить компьютер</button>
+          </form>
+      
+          <div id="admin-computer-table">
+              <table>
+                  <thead>
+                      <tr>
+                          <th>Аудитория</th>
+                          <th>Имя компьютера</th>
+                          <th>Статус</th>
+                          <th>Интернет</th>
+                          <th>Действия</th>
+                      </tr>
+                  </thead>
+                  <tbody id="computer-list">
+                  </tbody>
+              </table>
+          </div>
+      </section>      
+
+        <section id="groups" class="admin-section" style="display:none;">
+            <h2>Управление группами</h2>
+            <input type="text" id="newGroupName" placeholder="Название новой группы">
+            <button onclick="addGroup()">Добавить группу</button>
+
+            <div style="margin-top: 10px;">
+                <button onclick="removeGroup()">Удалить выбранную группу</button>
+            </div>
+
+            <select id="groupSelect" style="margin-top: 10px; width: 100%;"></select>
+        </section>
+
+        <section id="users" class="admin-section" style="display:none;">
+            <h2>Управление пользователями</h2>
+            <ul id="user-list"></ul>
+        </section>
+
+        <section id="schedule" class="admin-section" style="display:none;">
+            <h2>Добавить занятие</h2>
+            <form id="add-schedule-form">
+                <input type="text" id="group" placeholder="Группа (например, ПИ-301)" required><br>
+                <input type="text" id="auditory" placeholder="Аудитория (например, 101)" required><br>
+                <input type="time" id="time" required><br>
+                <button type="submit">Добавить в расписание</button>
+            </form>
+
+            <h2>Текущее расписание</h2>
+            <table id="schedule-table">
+                <thead>
+                <tr>
+                    <th>Группа</th>
+                    <th>Аудитория</th>
+                    <th>Время</th>
+                    <th>Преподаватель</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>
